@@ -18,9 +18,20 @@
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="../vendors/select2/dist/css/select2.min.css" rel="stylesheet">
     <!-- remodal -->
     <link href="https://cdn.bootcss.com/remodal/1.1.0/remodal-default-theme.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/remodal/1.1.0/remodal.min.css" rel="stylesheet">
+    <style>
+    .form-control {
+        border-radius: 4px;
+    }
+    
+    textarea {
+        resize: none;
+    }
+    </style>
 </head>
 
 <body class="nav-md">
@@ -29,7 +40,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>后台管理系统</span></a>
+                        <a href="index" class="site_title"><i class="fa fa-paw"></i> <span>后台管理系统</span></a>
                     </div>
                     <div class="clearfix"></div>
                     <!-- menu profile quick info -->
@@ -51,21 +62,21 @@
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-users"></i> 用户管理 <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="user_info.html">用户信息查询</a></li>
+                                        <li><a href="user_info">用户信息查询</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-rocket"></i> 广告位管理 <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="ad_edit.html">Banner位发布</a></li>
-                                        <li><a href="ad_manager.html">Banner位管理</a></li>
+                                        <li><a href="ad_edit">Banner位发布</a></li>
+                                        <li><a href="ad_manager">Banner位管理</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-edit"></i> 认证与文案编辑 <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a>认证管理<span class="fa fa-chevron-down" style="margin-top:0;"></span></a>
                                             <ul class="nav child_menu">
-                                                <li class="sub_menu"><a href="auth_info_list.html">认证信息查询</a>
-                                                    <li class="sub_menu"><a href="auth_info_edit.html">认证信息编辑</a>
+                                                <li class="sub_menu"><a href="auth_info_list">认证信息查询</a>
+                                                    <li class="sub_menu"><a href="auth_info_edit">认证信息编辑</a>
                                                     </li>
                                             </ul>
                                             </li>
@@ -114,11 +125,11 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                                     <li><a href="javascript:;">修改密码</a></li>
-                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> 登出</a></li>
+                                    <li><a href="login"><i class="fa fa-sign-out pull-right"></i> 登出</a></li>
                                 </ul>
                             </li>
                             <li role="presentation">
-                                <a href="index.html" class="">
+                                <a href="index" class="">
                                     <i class="fa fa-home"></i>
                                 </a>
                             </li>
@@ -132,7 +143,7 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>认证信息编辑</h3>
+                            <h3>认证学生信息编辑</h3>
                         </div>
                         <div class="title_right">
                             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
@@ -155,7 +166,9 @@
                                 </div>
                                 <div class="x_content">
                                     <p class="text-muted font-13 m-b-30">
-                                        <a href="javascript:;" id="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                                        <a href="javascript:;" id="add" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> 新增认证 </a>
+                                        <a href="javascript:;" id="edit" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> 编辑 </a>
+                                        <a href="javascript:;" id="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
                                         <span><em>注意：删除后用户的认证信息会被删除，即解除认证，请谨慎使用。目前只支持删除一个用户，不要多选，会出错</em></span>
                                     </p>
                                     <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
@@ -168,23 +181,47 @@
                                                 <th>用户名</th>
                                                 <th>真实姓名</th>
                                                 <th>学校</th>
-                                                <th>认证信息</th>
-                                                <th>个人描述</th>
-                                                <th>个人简介</th>
+                                                <th>认证类型</th>
+                                                <th>更新时间</th>
+                                                <th>创建时间</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <input type="checkbox" class="flat" name="table_records">
+                                                    <input type="checkbox" class="flat" name="user_row">
                                                 </td>
-                                                <td>用户ID</td>
-                                                <td>用户名</td>
-                                                <td>真实姓名</td>
-                                                <td>学校</td>
-                                                <td>认证信息</td>
-                                                <td>个人描述</td>
-                                                <td>个人简介</td>
+                                                <td name="user_id">oVUI-xNjHnY6ucpnsv2Lie2oWl1k</td>
+                                                <td name="user_name">MWY</td>
+                                                <td name="name_s">麻味一</td>
+                                                <td name="school">上海同济大学</td>
+                                                <td name="authentication">学生</td>
+                                                <td name="update_time">09:53</td>
+                                                <td name="create_time">12:48</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="checkbox" class="flat" name="user_row">
+                                                </td>
+                                                <td name="user_id">oVUI-xNjHnY6ucpnsv2Lie2oWl1k</td>
+                                                <td name="user_name">MWY</td>
+                                                <td name="name_s">麻味一</td>
+                                                <td name="school">上海同济大学</td>
+                                                <td name="authentication">学生</td>
+                                                <td name="update_time">09:53</td>
+                                                <td name="create_time">12:48</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="checkbox" class="flat" name="user_row">
+                                                </td>
+                                                <td name="user_id">oVUI-xNjHnY6ucpnsv2Lie2oWl1k</td>
+                                                <td name="user_name">MWY</td>
+                                                <td name="name_s">麻味一</td>
+                                                <td name="school">上海同济大学</td>
+                                                <td name="authentication">学生</td>
+                                                <td name="update_time">09:53</td>
+                                                <td name="create_time">12:48</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -205,18 +242,78 @@
             <!-- /footer content -->
         </div>
     </div>
-    <!-- 模态窗口 -->
-    <div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+    <!-- 新增模态窗口 -->
+    <div class="remodal remodal-add" data-remodal-id="modal-add" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div id="modal-content">
+            <form role="form">
+                <div class="form-group">
+                    <h4>确定认证以下用户吗？</h4>
+                    <textarea class="form-control" rows="3" resize="false" readonly>MarcoDeng，zhengyifei</textarea>
+                </div>
+            </form>
+        </div>
+        <br>
+        <button data-remodal-action="confirm" class="remodal-confirm">确定</button>
+        <button data-remodal-action="cancel" class="remodal-cancel">取消</button>
+    </div>
+    <!-- 编辑模态窗口 -->
+    <div class="remodal remodal-edit" data-remodal-id="modal-edit" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div id="modal-content">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">用户ID</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="user_id" placeholder="用户ID" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">用户名</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="user_name" placeholder="用户名" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">真实姓名</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="name_s" placeholder="真实姓名">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">学校</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="name_s" placeholder="学校">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">认证类型</label>
+                    <div class="col-sm-10">
+                        <select class="form-control">
+                            <option>学生</option>
+                            <option>校红</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br>
+        <button data-remodal-action="confirm" class="remodal-confirm">确定</button>
+        <button data-remodal-action="cancel" class="remodal-cancel">取消</button>
+    </div>
+    <!-- 删除模态窗口 -->
+    <div class="remodal remodal-delete" data-remodal-id="modal-delete" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
         <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
         <div id="modal-content">
             <p>你确定要删除认证信息吗？（删除后等于解除了认证用户的身份）</p>
         </div>
         <br>
-        <button data-remodal-action="cancel" class="remodal-cancel">取消</button>
         <button data-remodal-action="confirm" class="remodal-confirm">确定</button>
+        <button data-remodal-action="cancel" class="remodal-cancel">取消</button>
     </div>
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery-json/2.6.0/jquery.json.min.js"></script>
     <!-- Bootstrap -->
     <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
@@ -227,23 +324,27 @@
     <script src="../build/js/custom.min.js"></script>
     <!-- iCheck -->
     <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- Select2 -->
+    <script src="../vendors/select2/dist/js/select2.full.min.js"></script>
+    <!-- basic -->
+    <script src="../js/basic.js"></script>
     <!-- remodal -->
     <script src="https://cdn.bootcss.com/remodal/1.1.0/remodal.min.js"></script>
     <!-- handlebars -->
     <script src="http://cdn.bootcss.com/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script id="auth-template" type="text/x-handlebars-template">
-        {{#each auth_info}}
+        {{#each result}}
         <tr>
             <td>
-                <input type="checkbox" class="flat" name="table_records">
+                <input type="checkbox" class="flat" name="user_row">
             </td>
-            <td>用户ID</td>
-            <td>用户名</td>
-            <td>真实姓名</td>
-            <td>学校</td>
-            <td>认证信息</td>
-            <td>个人描述</td>
-            <td>个人简介</td>
+            <td name="user_id">{{user_id}}</td>
+            <td name="user_name">{{user_name}}</td>
+            <td name="name_s">{{name_s}}</td>
+            <td name="school">{{school}}</td>
+            <td name="authentication">{{authentication}}</td>
+            <td name="update_time">{{update_time}}</td>
+            <td name="create_time">{{create_time}}</td>
         </tr>
         {{/each}}
     </script>
@@ -260,6 +361,11 @@
             },
             dataType: "json",
             success: function(data) {
+                console.log(JSON.stringify(data));
+                for (var i in data["result"]) {
+                    data["result"][i]["update_time"] = formatCurrentTime(data["result"][i]["update_time"]);
+                    data["result"][i]["create_time"] = formatCurrentTime(data["result"][i]["create_time"]);
+                }
                 var context = data;
                 $("tbody").append(template(context));
             }
@@ -268,25 +374,84 @@
     </script>
     <!-- 处理表格中用户信息的删除 -->
     <script>
+    // 新增按钮
+    $("#add").click(function() {
+        // 弹出确认框
+        window.location = "#modal-add";
+    });
+    // 编辑按钮
+    $("#edit").click(function() {
+        // 弹出确认框
+        window.location = "#modal-edit";
+    });
     // 删除按钮
     $("#delete").click(function() {
         // 弹出确认框
-        window.location = "#modal";
+        window.location = "#modal-delete";
     });
 
-    $(document).on('confirmation', '.remodal', function() {
-        // 获取要删除用户的ID
-        var id = $(".selected td:eq(1)").text();
+    // 编辑窗口获取用户信息
+    $(document).on('opening', '.remodal-edit', function() {
+
         $.ajax({
-            type: "DELETE",
+            type: "POST",
+            url: "/users/v1/addauthuser",
+            data: {
+                "id": idList
+            },
+            dataType: "json",
+            success: function(data) {
+                console.log("添加成功成功！");
+                row.remove();
+            }
+        });
+    });
+
+    // 确认编辑认证信息
+    $(document).on('confirmation', '.remodal-edit', function() {
+        // 获取要新增认证用户的ID
+        var id;
+        var selected = $("input:checkbox[name='user_row']:checked");
+        var row;
+        $("input:checkbox[name='user_row']:checked").each(function() {
+            row = $(this).parent("td").parent("tr");
+            id = row.find("[name='user_id']").text();
+        });
+        console.log("idList=" + idList);
+        $.ajax({
+            type: "POST",
+            url: "/users/v1/addauthuser",
+            data: {
+                "id": idList
+            },
+            dataType: "json",
+            success: function(data) {
+                console.log("添加成功成功！");
+                row.remove();
+            }
+        });
+    });
+    // 确认删除认证
+    $(document).on('confirmation', '.remodal-delete', function() {
+        // 获取要删除用户的ID
+        var id;
+        var selected = $("input:checkbox[name='user_row']:checked");
+        var row;
+        $("input:checkbox[name='user_row']:checked").each(function() {
+            row = $(this).parent("td").parent("tr");
+            id = row.find("[name='user_id']").text();
+        });
+        console.log("id=" + id);
+        $.ajax({
+            type: "POST",
             url: "/users/v1/deleteauthuser",
             data: {
                 "id": id
             },
             dataType: "json",
             success: function(data) {
-                alert("删除成功！");
-                $(".selected").remove();
+                console.log("删除成功！");
+                row.remove();
             }
         });
     });

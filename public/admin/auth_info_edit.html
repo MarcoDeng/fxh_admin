@@ -27,8 +27,6 @@
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
     <link href="../build/css/basic.css" rel="stylesheet">
-    <!-- Dropzone.js -->
-    <link href="../vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
     <!-- Select2 -->
     <link href="../vendors/select2/dist/css/select2.min.css" rel="stylesheet">
 </head>
@@ -39,7 +37,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>后台管理系统</span></a>
+                        <a href="index" class="site_title"><i class="fa fa-paw"></i> <span>后台管理系统</span></a>
                     </div>
                     <div class="clearfix"></div>
                     <!-- menu profile quick info -->
@@ -61,30 +59,30 @@
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-users"></i> 用户管理 <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="user_info.html">用户信息查询</a></li>
+                                        <li><a href="user_info">用户信息查询</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-rocket"></i> 广告位管理 <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="ad_edit.html">Banner位发布</a></li>
-                                        <li><a href="ad_manager.html">Banner位管理</a></li>
+                                        <li><a href="ad_edit">Banner位发布</a></li>
+                                        <li><a href="ad_manager">Banner位管理</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-edit"></i> 认证与文案编辑 <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a>认证管理<span class="fa fa-chevron-down" style="margin-top:0;"></span></a>
                                             <ul class="nav child_menu">
-                                                <li class="sub_menu"><a href="auth_info_list.html">认证信息查询</a>
-                                                    <li class="sub_menu"><a href="auth_info_edit.html">认证信息编辑</a>
+                                                <li class="sub_menu"><a href="auth_info_list">认证信息查询</a>
+                                                    <li class="sub_menu"><a href="auth_info_edit">认证信息编辑</a>
                                                     </li>
                                             </ul>
                                             </li>
-                                            <li><a href="pop_edit.html">校红特辑编辑</a></li>
+                                            <li><a href="pop_edit">校红特辑编辑</a></li>
                                     </ul>
                                     </li>
                                     <li><a><i class="fa fa-bar-chart"></i> 统计数据 <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="statistic.html">统计数据</a></li>
+                                            <li><a href="statistic">统计数据</a></li>
                                         </ul>
                                     </li>
                             </ul>
@@ -124,11 +122,11 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                                     <li><a href="javascript:;">修改密码</a></li>
-                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> 登出</a></li>
+                                    <li><a href="login"><i class="fa fa-sign-out pull-right"></i> 登出</a></li>
                                 </ul>
                             </li>
                             <li role="presentation">
-                                <a href="index.html" class="">
+                                <a href="index" class="">
                                     <i class="fa fa-home"></i>
                                 </a>
                             </li>
@@ -162,19 +160,6 @@
                                 <div class="x_title">
                                     <h2>是否新建校红 <small>STEP ONE</small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Settings 1</a>
-                                                </li>
-                                                <li><a href="#">Settings 2</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
                                     </ul>
                                     <div class="clearfix"></div>
                                 </div>
@@ -195,38 +180,11 @@
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12">选择修改的校红</label>
                                             <div class="col-md-9 col-sm-9 col-xs-12">
                                                 <select class="select2_single form-control select2_xiaohong" tabindex="-1">
-                                                    <option></option>
-                                                    <option value="AK">Alaska</option>
-                                                    <option value="HI">Hawaii</option>
-                                                    <option value="CA">California</option>
-                                                    <option value="NV">Nevada</option>
-                                                    <option value="OR">Oregon</option>
-                                                    <option value="WA">Washington</option>
-                                                    <option value="AZ">Arizona</option>
-                                                    <option value="CO">Colorado</option>
-                                                    <option value="ID">Idaho</option>
-                                                    <option value="MT">Montana</option>
-                                                    <option value="NE">Nebraska</option>
-                                                    <option value="NM">New Mexico</option>
-                                                    <option value="ND">North Dakota</option>
-                                                    <option value="UT">Utah</option>
-                                                    <option value="WY">Wyoming</option>
-                                                    <option value="AR">Arkansas</option>
-                                                    <option value="IL">Illinois</option>
-                                                    <option value="IA">Iowa</option>
-                                                    <option value="KS">Kansas</option>
-                                                    <option value="KY">Kentucky</option>
-                                                    <option value="LA">Louisiana</option>
-                                                    <option value="MN">Minnesota</option>
-                                                    <option value="MS">Mississippi</option>
-                                                    <option value="MO">Missouri</option>
-                                                    <option value="OK">Oklahoma</option>
-                                                    <option value="SD">South Dakota</option>
-                                                    <option value="TX">Texas</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="ln_solid"></div>
+                                        <button type="button" class="btn btn-success btn-xiaohong" style="margin:0 27%;">获取校红信息</button>
                                     </form>
                                 </div>
                             </div>
@@ -241,7 +199,7 @@
                                     <br />
                                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">姓名<span class="required">*</span>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">真实姓名<span class="required">*</span>
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                 <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12">
@@ -251,7 +209,7 @@
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">个人头像<span class="required">*</span>
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <div class="upload-file upload-headimg dropzone"></div>
+                                                <input type="file" id="headUpload">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -268,7 +226,7 @@
                                             </div>
                                         </div>
                                         <div class="ln_solid"></div>
-                                        <label for="message">个人描述</label>
+                                        <label for="statement">个人描述</label>
                                         <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10"></textarea>
                                     </form>
                                 </div>
@@ -279,19 +237,6 @@
                                 <div class="x_title">
                                     <h2>个人简介<small>STEP THREE</small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Settings 1</a>
-                                                </li>
-                                                <li><a href="#">Settings 2</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
                                     </ul>
                                     <div class="clearfix"></div>
                                 </div>
@@ -358,7 +303,7 @@
                                             <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
                                         </div>
                                     </div>
-                                    <div id="editor" class="editor-wrapper"></div>
+                                    <div id="editor" class="editor-wrapper introduction"></div>
                                     <textarea name="descr" id="descr" style="display:none;"></textarea>
                                     <br />
                                     <div class="ln_solid"></div>
@@ -375,8 +320,6 @@
                                         </li>
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
-                                        <li><a class="close-link gallary-close" onclick="gallaryClose(this);"><i class="fa fa-close"></i></a>
-                                        </li>
                                     </ul>
                                     <div class="clearfix"></div>
                                 </div>
@@ -388,16 +331,16 @@
                                         </div>
                                     </div>
                                     <br/>
-                                    <input id="upload_img" type="file" onchange="onUploadImgChange(this,'preview','preview_fake','preview_size_fake')" />
+                                    <input type="file" class="album_img" />
                                     <br/>
                                     <img id="preview_size_fake" />
                                     <br />
                                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                                         <div class="form-group">
-                                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">本条栏目标题
+                                            <label class="control-label col-md-2 col-sm-2 col-xs-12">本条栏目标题
                                             </label>
                                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                <input type="text" required="required" class="album_title form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
                                     </form>
@@ -413,7 +356,7 @@
                                 <div class="x_content">
                                     <div class="form-group">
                                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                            <button type="submit" class="btn btn-success">提交</button>
+                                            <button type="button" class="submit btn btn-success">提交</button>
                                         </div>
                                     </div>
                                 </div>
@@ -468,8 +411,6 @@
     <script src="../vendors/starrr/dist/starrr.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
-    <!-- Dropzone.js -->
-    <script src="../vendors/dropzone/dist/min/dropzone.min.js"></script>
     <!-- Select2 -->
     <script src="../vendors/select2/dist/js/select2.full.min.js"></script>
     <!-- handlebars -->
@@ -499,7 +440,7 @@
                     </div>
                 </div>
                 <br/>
-                <input id="upload_img" type="file" onchange="onUploadImgChange(this,'preview','preview_fake','preview_size_fake')" />
+                <input type="file" class="album_img" />
                 <br/>
                 <img id="preview_size_fake" />
                 <br />
@@ -509,7 +450,7 @@
                         <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">本条栏目标题
                         </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                            <input type="text" required="required" class="album_title form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                 </form>
@@ -586,8 +527,41 @@
     $(document).ready(function() {
         $(".select2_single").select2({
             placeholder: "选择一个校红",
-            allowClear: false
+            allowClear: false,
+            ajax: {
+                url: "/users/v1/showauthuser",
+                dataType: 'json',
+                delay: 250,
+                processResults: function(data) {
+                    // parse the results into the format expected by Select2
+                    // since we are using custom formatting functions we do not need to
+                    // alter the remote JSON data, except to indicate that infinite
+                    // scrolling can be used
+                    console.log(JSON.stringify(data));
+                    return {
+                        results: data.items,
+                    };
+                },
+                cache: true
+            }
         });
+        // 获取校红列表
+        // var source = $("#list-template").html();
+        // var template = Handlebars.compile(source);
+        // $.ajax({
+        //     type: "GET",
+        //     url: "/admin/v1/authpeople",
+        //     async: true,
+        //     data: {
+
+        //     },
+        //     dataType: "json",
+        //     success: function(data) {
+        //         // 获取用户数据并进行模版渲染
+        //         // var context = data;
+        //         // $(".select2_multiple").html(template(context));
+        //     }
+        // });
     });
     </script>
     <!-- /Select2 -->
@@ -603,127 +577,65 @@
     function gallaryClose(cl) {
         $(cl).parent().parent().parent().parent(".x_panel").remove();
     }
-    </script>
-    <!-- dropzone -->
-    <script>
-    $(".upload-file").dropzone({
-        url: "handle-upload.php",
-        addRemoveLinks: true,
-        dictRemoveLinks: "x",
-        dictCancelUpload: "x",
-        maxFiles: 1,
-        parallelUploads: 1,
-        maxFilesize: 5,
-        // hiddenInputContainer: true,
-        acceptedFiles: "image/*",
-        init: function() {
-            this.on("success", function(file) {
-                console.log("File " + file.name + "uploaded");
-            });
-            this.on("removedfile", function(file) {
-                console.log("File " + file.name + "removed");
-            });
-        }
+
+    // 获取校红信息
+    $('.btn-xiaohong').click(function() {
+        // 获取校红ID
+        var xiaohongId = $('.select2_multiple').select2('val');
+        // 获取校红名字
+        // var xiaohongText = $('.select2_multiple').find("option:selected").text();
+        $.ajax({
+            type: "GET",
+            url: "/users/v1/authuser",
+            async: true,
+            data: {
+                id: xiaohongId
+            },
+            dataType: "json",
+            success: function(data) {
+                console.log(JSON.stringify(data));
+            }
+        });
     });
-    </script>
-    <!-- /dropzone -->
-    <script type="text/javascript">
-    /**
-     * 上传照片显示缩略图
-     * input onchange时间绑定onUploadImgChange
-     * 显示图片的IMG的onLoad绑定onPreviewLoad_根据高宽度设置或绑定onPreviewLoad根据比例绑定
-     */
-    //sender 图片本身
-    //view1 页面显示图片  view2 页面显示图片DIV层 view3 页面显示图片IE情况下可能出现的问题
-    //reduce 图片减少原来图片的几倍
-    function onUploadImgChange(sender, view1, view2, view3, reduce, w, h) {
-        if (!sender.value.match(/.jpg|.gif|.png|.bmp/i)) {
-            alert('图片格式无效！');
-            return false;
-        }
-        var objPreview = document.getElementById(view1); //
-        var objPreviewFake = document.getElementById(view2); //     
-        var objPreviewSizeFake = document.getElementById(view3);
 
-        if (sender.files && sender.files[0]) {
-            objPreview.style.display = 'block';
-            objPreview.style.width = 'auto';
-            objPreview.style.height = 'auto';
+    // <!-- 文章图片存储 -->
+    // 提交表单
+    $(".submit").click(function() {
+        fileUpload("#headUpload", submitForm);
+        submitForm(headUrl);
+    });
 
-            // Firefox 因安全性问题已无法直接通过 input[file].value 获取完整的文件路径     
-            var file;
-            var objectURL;
-            //判断浏览器是否属于Mozilla,Sofari
-            if (window.XMLHttpRequest) {
-                objectURL = window.URL.createObjectURL(sender.files[0]);
-                objPreview.src = objectURL;
-            } else if (window.ActiveXObject) { //IE
-                objPreview.src = sender.files[0].getAsDataURL();
+    function submitForm(url) {
+        var name = $("#name").val();
+        var bgUrl = url;
+        var auth_info = $("#auth_info").val();
+        var school = $("#school").val();
+        var statement = $("#statement").text();
+        var introduction = $(".introduction").html();
+        var text = $("#editor").html();
+        var album_img = $(".album_img");
+        var album_title = $(".album_title");
+        console.log("name = " + name);
+        console.log("auth_info = " + auth_info);
+        console.log("bgUrl = " + bgUrl);
+        console.log("school = " + school);
+        console.log("statement = " + statement);
+        console.log("introduction = " + introduction);
+        console.log("text = " + text);
+        console.log("album_img = " + album_img);
+        console.log("album_title = " + album_title);
+        $.ajax({
+            type: "POST",
+            url: "/users/v1/updateauthuser",
+            async: true,
+            data: {
+                id: xiaohongId
+            },
+            dataType: "json",
+            success: function(data) {
+                console.log("更新成功！");
             }
-        } else if (objPreviewFake.filters) {
-            // IE7,IE8 在设置本地图片地址为 img.src 时出现莫名其妙的后果     
-            //（相同环境有时能显示，有时不显示），因此只能用滤镜来解决     
-
-            // IE7, IE8因安全性问题已无法直接通过 input[file].value 获取完整的文件路径     
-            sender.select();
-            var imgSrc = document.selection.createRange().text;
-
-            objPreviewFake.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = imgSrc;
-            objPreviewSizeFake.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = imgSrc;
-            autoSizePreview(objPreviewFake, objPreviewSizeFake.offsetWidth, objPreviewSizeFake.offsetHeight);
-            objPreview.style.display = 'none';
-        }
-    }
-
-    //加载图片显示  比例设置
-    //sender reduce_w 宽度缩小为原来的几倍  
-    //reduce_h 高度缩小为原来的几倍  
-    function onPreviewLoad(sender, reduce_w, reduce_h) {
-        autoSizePreview(sender, sender.offsetWidth / reduce_w, sender.offsetHeight / reduce_h);
-    }
-
-    //高宽度设置
-    function onPreviewLoad_(sender, w, h) {
-        autoSizePreview(sender, w, h);
-    }
-
-    //originalWidth 控制显示图片的宽度  originalHeight 控制显示图片的高度  
-    function autoSizePreview(objPre, originalWidth, originalHeight) {
-        var zoomParam = clacImgZoomParam(300, 300, originalWidth, originalHeight);
-        objPre.style.width = zoomParam.width + 'px';
-        objPre.style.height = zoomParam.height + 'px';
-        objPre.style.marginTop = zoomParam.top + 'px';
-        objPre.style.marginLeft = zoomParam.left + 'px';
-    }
-
-    function clacImgZoomParam_(position_) {
-
-    }
-    //maxWidth,maxHeight 显示图片的位置
-    function clacImgZoomParam(maxWidth, maxHeight, width, height) {
-        var param = {
-            width: width,
-            height: height,
-            top: 0,
-            left: 0
-        };
-
-        if (width > maxWidth || height > maxHeight) {
-            rateWidth = width / maxWidth;
-            rateHeight = height / maxHeight;
-
-            if (rateWidth > rateHeight) {
-                param.width = maxWidth;
-                param.height = height / rateWidth;
-            } else {
-                param.width = width / rateHeight;
-                param.height = maxHeight;
-            }
-        }
-        param.left = (maxWidth - param.width) / 2;
-        param.top = (maxHeight - param.height) / 2;
-
-        return param;
+        });
     }
     </script>
 </body>
